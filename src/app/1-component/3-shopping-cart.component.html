@@ -1,0 +1,3 @@
+<div *ngFor="let item of items" [ngClass]="{premium: item.price > 100}">
+  {{item.name}} - {{item.price}}<span *ngIf="item.price > 100">*</span>
+</div>

@@ -1,0 +1,46 @@
+<div>
+  <div *ngFor="let game of games | async" class="panel panel-primary">
+    <div class="panel-heading">
+      <h3 myToggle="game-details-{{game.gameId}}" class="panel-title">
+        {{game.gameId}}
+      </h3>
+    </div>
+    <div myToggleable="game-details-{{game.gameId}}" class="panel-body hidden">
+      <table class="table table-striped table-hover">
+        <caption>Paytable</caption>
+        <th>Prize level</th>
+        <th>Win amount</th>
+        <th>Free ticket</th>
+        <th>Probability</th>
+        <tr *ngFor="let prize of game.prize">
+          <td>{{prize.level}}</td>
+          <td>{{prize.winAmount}}</td>
+          <td>{{prize.freeTicket}}</td>
+          <td>{{prize.probabilityUp}}/{{prize.probabilityDown}} ({{prize.probabilityUp / prize.probabilityDown}})</td>
+        </tr>
+      </table>
+    </div>
+    <div>
+      <table class="table table-bordered table-condensed">
+        <tr>
+          <td class="col-md-2">Engine</td>
+          <td>{{game.gameEngine}}</td>
+        </tr>
+        <tr>
+          <td>Ticket prices</td>
+          <td>{{game.ticketPrice}}</td>
+        </tr>
+        <tr>
+          <td>RTP</td>
+          <td>{{game.rtp}}</td>
+        </tr>
+      </table>
+    </div>
+    <div class="panel-footer">
+      <button type="button" class="btn" ng-class="{'btn-danger': !game.isSuspended, 'btn-success': game.isSuspended}" >
+        <span *ngIf="!game.isSuspended" (click)="suspendGame(game.gameId, true)">Suspend</span>
+        <span *ngIf="game.isSuspended" (click)="suspendGame(game.gameId, false)">Un-suspend</span>
+      </button>
+    </div>
+  </div>
+</div>

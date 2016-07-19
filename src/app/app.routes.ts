@@ -11,6 +11,8 @@ import { Leaderboard1Component, LeaderboardIndex2Component, LeaderboardIndex3Com
 
 import { DirectiveShowcaseComponent} from './3-directive';
 
+import { Todo1Component} from './4-promise';
+
 export const routes: RouterConfig = [
   { path: '', component: HelloWorldComponent },
 
@@ -25,6 +27,8 @@ export const routes: RouterConfig = [
   { path: 'leaderboard3', component: LeaderboardIndex3Component},
 
   { path: 'directive', component: DirectiveShowcaseComponent},
+
+  { path: 'todo2', component: Todo1Component},
 
   { path: 'games', component: GamesComponent }
 ];

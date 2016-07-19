@@ -28,7 +28,16 @@
             </ul>
           </li>
           <li><a [routerLink]="['directive']">Directive Showcase</a></li>
-          <li><a>Promises</a></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">
+              Promises <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+              <li><a [routerLink]="['todo2']">Todo</a></li>
+              <li role="separator" class="divider"></li>
+              <li><a>Leaderboard</a></li>
+            </ul>
+          </li>
           <li><a>RxJS</a></li>
           <li><a [routerLink]="['games']">Games</a></li>
         </ul>
